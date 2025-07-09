@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forex Signal</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #0f172a;
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+    }
+    .box {
+      background: #1e293b;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0ea5e9;
+    }
+    .signal {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>📊 Forex Live Signal</h1>
+  <div class="box">
+    <div id="time">⏳ Loading...</div>
+    <div class="signal" id="signal">Fetching signal...</div>
+  </div>
+
+  <script>
+    async function fetchSignal() {
+      const time = new Date();
+      document.getElementById('time').innerText = "🕒 Time: " + time.toLocaleTimeString();
+
+      // ডেমো সিগন্যাল — পরে API যুক্ত করব
+      const signals = [
+        "EUR/USD → 📈 CALL",
+        "GBP/JPY → 📉 PUT",
+        "USD/JPY → 📈 CALL",
+        "AUD/USD → 📉 PUT"
+      ];
+      const random = Math.floor(Math.random() * signals.length);
+      document.getElementById('signal').innerText = "🔔 " + signals[random];
+    }
+
+    fetchSignal();
+    setInterval(fetchSignal, 60000); // প্রতি ১ মিনিটে আপডেট
+  </script>
+</body>
+</html>
